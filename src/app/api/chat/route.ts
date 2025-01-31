@@ -25,7 +25,7 @@ import { z } from "zod";
 import { getSessionHistory } from "@/lib/operator/session";
 
 // Allow streaming responses up to 30 seconds
-export const maxDuration = 120;
+export const maxDuration = 60;
 
 export async function POST(req: Request) {
   try {
