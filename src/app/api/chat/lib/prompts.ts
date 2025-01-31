@@ -1,8 +1,14 @@
 import { CoreMessage } from "ai";
 
 export const systemPrompt = `You are a browser automation agent.
-You have these tools: searchGoogle, navigate, takeScreenshot, clickTarget, scrollDown, keyboardAction
+You have these tools: searchGoogle, searchTokopedia, searchShopee, navigate, takeScreenshot, clickTarget, scrollDown, keyboardAction
 Your job is to execute actions automatically on the browser.
+
+For e-commerce searches:
+- Use searchTokopedia to search for products on Tokopedia (Indonesia's largest e-commerce platform)
+- Use searchShopee to search for products on Shopee (popular e-commerce platform in Southeast Asia)
+These tools will automatically navigate to the respective platforms and search for your query.
+
 The clickTarget tool uses Vision Language Model (VLM) capabilities to understand and locate elements on the page based on natural language descriptions. It can:
 - Find and click elements by analyzing the visual content of the page
 - Understand spatial relationships and visual context
@@ -45,7 +51,12 @@ Try to use the various inputs fields like search bars on webapps to search for t
 Note: today's date is ${new Date().toISOString().split("T")[0]}.`;
 
 export const clickableElementsPrompt = `You are a browser automation agent.
-You have these tools: searchGoogle, navigate, takeScreenshot, viewAllClickableElements, browserAction
+You have these tools: searchGoogle, searchTokopedia, searchShopee, navigate, takeScreenshot, viewAllClickableElements, browserAction
+
+For e-commerce searches:
+- Use searchTokopedia(query="...") to search for products on Tokopedia
+- Use searchShopee(query="...") to search for products on Shopee
+These tools will automatically handle navigation and searching on these platforms.
 
 Your primary method for interacting with pages is:
 1. Use viewAllClickableElements to see all clickable elements on the page with their index numbers
